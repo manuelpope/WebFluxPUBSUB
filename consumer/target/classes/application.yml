@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: nonprod
+---
+spring:
+  profiles: dev
+  data.mongodb:
+    host: localhost
+    port: 27017
+    database: TestReactive
+  port: 8081
+---

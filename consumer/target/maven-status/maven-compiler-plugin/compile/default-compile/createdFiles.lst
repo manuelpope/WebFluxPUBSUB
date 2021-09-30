@@ -1,0 +1,8 @@
+com/producerAPI/producer/exception/ControllerExceptionHandler.class
+com/producerAPI/producer/initialize/ItemDataInitializer.class
+com/producerAPI/producer/repository/ItemReactiveCappedRepository.class
+com/producerAPI/producer/constants/ItemConstants.class
+com/producerAPI/producer/APIProducer.class
+com/producerAPI/producer/document/ItemCapped.class
+com/producerAPI/producer/controller/v1/dto/ItemCappedDTO.class
+com/producerAPI/producer/controller/v1/ItemStreamController.class

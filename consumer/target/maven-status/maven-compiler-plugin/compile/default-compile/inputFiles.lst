@@ -1,0 +1,8 @@
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/constants/ItemConstants.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/exception/ControllerExceptionHandler.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/APIProducer.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/document/ItemCapped.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/repository/ItemReactiveCappedRepository.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/controller/v1/ItemStreamController.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/initialize/ItemDataInitializer.java
+/home/matb/Desktop/APIWebClient/producer/src/main/java/com/producerAPI/producer/controller/v1/dto/ItemCappedDTO.java
