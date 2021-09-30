@@ -10,6 +10,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
 
+import java.time.Duration;
+
 @Component
 @Profile("!test")
 @Slf4j
@@ -46,7 +48,9 @@ public class ItemDataInitializer implements CommandLineRunner {
     private Flux<ItemCapped> getAllItemsUsingExchange() {
         return webClient.get().uri(STREAM_ITEMS)
                 .exchange()
+                .filter(s -> !s.statusCode().isError())
                 .flatMapMany(clientResponse -> clientResponse.bodyToFlux(ItemCapped.class))
+                .retryBackoff(3, Duration.ofSeconds(5))
                 .log();
     }
 }
