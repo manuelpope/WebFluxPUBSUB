@@ -3,15 +3,12 @@ package com.producerAPI.producer.initialize;
 
 import com.producerAPI.producer.document.ItemCapped;
 import lombok.extern.slf4j.Slf4j;
-import org.reactivestreams.Subscription;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.Disposable;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
-import reactor.core.scheduler.Scheduler;
 
 @Component
 @Profile("!test")
@@ -39,8 +36,8 @@ public class ItemDataInitializer implements CommandLineRunner {
         stringFlux.connect();
         stringFlux.subscribe(
                 ItemDataInitializer::doSomething,
-                error-> log.error(error.getMessage()),
-                ()->log.info("finish messages")
+                error -> log.error(error.getMessage()),
+                () -> log.info("finish messages")
         );
 
 

@@ -40,15 +40,12 @@ public class ItemDataInitializer implements CommandLineRunner {
     }
 
 
-
     public void dataSetUpforCappedCollection() {
 
         Flux<ItemCapped> itemCappedFlux = Flux.interval(Duration.ofSeconds(1))
                 .map(i -> new ItemCapped(null, "Random Item " + i, (100.00 + i)));
 
     }
-
-
 
 
 }

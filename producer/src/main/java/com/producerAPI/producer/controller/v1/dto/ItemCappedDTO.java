@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 public class ItemCappedDTO {
 
 
-
     @NotEmpty(message = "could not be blank field name")
     private String description;
     @NotNull(message = "could not be blank field name")

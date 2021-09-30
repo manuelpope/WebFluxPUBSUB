@@ -30,17 +30,17 @@ public class ItemStreamController {
     @Autowired
     ItemReactiveCappedRepository itemReactiveCappedRepository;
 
-    @GetMapping(value = ITEM_STREAM_END_POINT_V1,produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+    @GetMapping(value = ITEM_STREAM_END_POINT_V1, produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<ItemCapped> getItemsStream() {
 
-        return itemReactiveCappedRepository.findItemsBy().repeatWhen(flux->flux.delayElements(Duration.ofSeconds(1)));
+        return itemReactiveCappedRepository.findItemsBy().repeatWhen(flux -> flux.delayElements(Duration.ofSeconds(1)));
     }
 
     @PostMapping(value = ITEM_POST_END_POINT_V1, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> persistEvent(@Valid @RequestBody ItemCappedDTO request) {
         try {
             ItemCapped itemCapped = new ItemCapped(null, request.getDescription(), request.getPrice());
-            log.info("item from request: "+itemCapped);
+            log.info("item from request: " + itemCapped);
             return new ResponseEntity<>(itemReactiveCappedRepository.save(itemCapped), HttpStatus.CREATED);
 
         } catch (Exception e) {
