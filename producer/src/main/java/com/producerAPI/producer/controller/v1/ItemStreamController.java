@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
 import javax.validation.Valid;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class ItemStreamController {
     @GetMapping(value = ITEM_STREAM_END_POINT_V1,produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<ItemCapped> getItemsStream() {
 
-        return itemReactiveCappedRepository.findItemsBy();
+        return itemReactiveCappedRepository.findItemsBy().repeatWhen(flux->flux.delayElements(Duration.ofSeconds(1)));
     }
 
     @PostMapping(value = ITEM_POST_END_POINT_V1, produces = MediaType.APPLICATION_JSON_VALUE)
